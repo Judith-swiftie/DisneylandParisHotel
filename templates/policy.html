@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Disneyland Hotel</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/script.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="/static/img/Logo-hotel.png" alt="Disneyland Hotel" class="double-border"></a>
+            </div>
+            <!-- Botón de menú hamburguesa para móviles -->
+            <div class="menu-toggle" id="mobile-menu">
+                &#9776;
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="login.html"><img src="/static/img/logo-sesion.png" alt="Inicio Sesión" class="nav-icon"></a></li>            </ul>
+            <style>
+                /* Importar tipografía estilo Disney */
+                @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    
+                /* Estilos para el logo */
+                /* Estilos para el logo */
+.logo {
+    padding: 20px;
+    margin-left: 35px; /* Espacio a la izquierda del logo */
+}
+
+/* Estilos para la imagen con borde doble */
+.double-border {
+    border-radius: 60%;
+    border: 12px solid #c2185b; /* Borde interior más grueso */
+    padding: 5px;
+    box-shadow: 0 0 0 6px #8b0032; /* Borde exterior más delgado simulado con box-shadow */
+    display: block;
+    max-width: 290px; /* Tamaño más grande para el logo */
+    height: auto;
+}
+
+
+    
+/* Estilos para la barra de navegación */
+nav {
+    background-color: #ffd1dc; /* Fondo rosa pastel */
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Se asegura que ocupe todo el ancho visible del viewport */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+    z-index: 1000; /* Mantiene la barra sobre otros elementos */
+    overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+    border-top: 8px solid #700029; /* Borde superior rosa oscuro */
+    border-bottom: 8px solid #700029; /* Borde inferior rosa oscuro */
+}
+header {
+    background-color: none; /* Asegúrate de que sea el mismo color que la barra de navegación */
+    padding: 0px 0; /* Cambia a un valor más pequeño */
+}
+
+    
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0 60px 0 0;
+    display: flex;
+    gap: 42px; /* Añade más espacio entre los elementos */
+    }
+    
+.nav-links li a {
+    text-decoration: none;
+    color: #c2185b; /* Color rosa oscuro para el texto */
+    font-weight: bold;
+    font-size: 38px; /* Tamaño de fuente más grande */
+    padding: 5px;
+    font-family: 'Great Vibes', cursive; /* Tipografía estilo Disney */
+    transition: all 0.3s ease; /* Transición suave para el hover */
+    }
+    
+    .nav-links li a:hover {
+        color: #700029; /* Tono más oscuro al pasar el cursor */
+        text-decoration: underline; /* Subraya el texto al pasar el cursor */
+        }
+    
+    /* Estilos para el menú hamburguesa en móviles */
+    .menu-toggle {
+        display: none;
+        font-size: 40px;
+        cursor: pointer;
+        padding-right: 20px;
+        color: #c2185b;
+        }
+    
+                
+/* Estilo para dispositivos móviles (pantallas pequeñas) */
+@media only screen and (max-width: 600px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #ffd1dc;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+                    }
+    /* Ajusta el tamaño del logo */
+    .logo img {
+        max-width: 180px; /* Reduce el tamaño del logo en pantallas pequeñas */
+    }
+
+    /* Ajusta la barra de navegación */
+    .nav-links li a {
+        font-size: 24px; /* Reduce el tamaño de la fuente en los enlaces de navegación */
+    }
+    .nav-links.active {
+        display: flex;
+        }
+    .menu-toggle {
+        display: block;
+        }
+
+    /* Ajusta la sección hero */
+    .hero-content h1 {
+        font-size: 32px; /* Tamaño del título principal en móvil */
+    }
+
+    .hero-content p {
+        font-size: 18px; /* Tamaño del subtítulo en móvil */
+    }
+
+    .cta {
+        font-size: 18px; /* Tamaño del botón de llamada a la acción en móvil */
+        padding: 10px 20px;
+    }
+}
+
+/* Estilo para tablets (pantallas medianas) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .nav-links li a {
+        font-size: 28px; /* Tamaño de la fuente ajustado para tablets */
+    }
+
+    .hero-content h1 {
+        font-size: 40px; /* Tamaño del título principal en tablets */
+    }
+
+    .cta {
+        font-size: 20px; /* Tamaño del botón de llamada a la acción en tablets */
+        padding: 12px 24px;
+    }
+    .logo img {
+        max-width: 220px;
+        }
+}
+
+/* Estilo para pantallas grandes (escritorio) */
+@media only screen and (min-width: 1025px) {
+    /* Ya tienes tus estilos principales aquí, pero puedes hacer ajustes si lo deseas */
+}
+
+/* Imagen de fondo para toda la página */
+body {
+        background-image: url('/static/img/fondo2.jpg'); /* Asegúrate de que la ruta de la imagen sea correcta */
+        background-size: cover; /* La imagen cubre todo el fondo */
+        background-position: center; /* Centra la imagen */
+        background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
+            </style>
+        </nav>
+    </header>
+
+    <section id="policy">
+        <h2>Política de Privacidad</h2>
+        <p>Tu información personal será tratada con confidencialidad y no será compartida con terceros sin tu consentimiento...</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Disneyland Hotel Paris. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para activar/desactivar el menú en móviles -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+    
+</body>
+</html>

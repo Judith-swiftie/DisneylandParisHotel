@@ -1,0 +1,775 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background-color: #282c34;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo translúcido */
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /* Mantiene la barra de navegación fija en la parte superior */
+    top: 0;
+    width: 100%; /* Ocupa todo el ancho de la página */
+    transition: top 0.3s, position 0.3s, opacity 0.3s; /* Añadimos la transición de opacidad */
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.logo {
+    padding: 20px;
+    margin-left: 5px; /* Espacio a la izquierda del logo */
+    display: inline-block;
+}
+
+/* Logo con efecto hover */
+.logo img {
+    width: 150px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1; /
+}
+
+/* Agrandar ligeramente el logo en hover */
+.logo img:hover {
+    transform: scale(1.08);
+}
+
+/* Estrellitas - Crear múltiples puntos de luz */
+.logo::before, .logo::after {
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 13%;
+    width: 5px;
+    height: 5px;
+    background-color: gold; /* Color de las estrellas */
+    border-radius: 10%; /* Hacer las estrellas redondas */
+    box-shadow: 
+        0px 0px 10px rgba(255, 223, 0, 0.8), /* Brillo alrededor de la estrella */
+        0px 0px 20px rgba(255, 223, 0, 0.5); /* Luz más suave */
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Crear múltiples estrellitas que salen del logo */
+.logo:hover::before {
+    animation: sparkle 1s ease-out forwards;
+}
+
+.logo:hover::after {
+    animation: sparkle 1s 0.2s ease-out forwards; /* Añadir un pequeño retraso */
+}
+
+/* Animación de las estrellitas */
+@keyframes sparkle {
+    110% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(2); /* Comienza en el centro del logo */
+    }
+    150% {
+        opacity: 2;
+        transform: translate(calc(-50% - 50px), calc(-50% - 50px)) scale(2); /* Moverse en diagonal */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(calc(-50% - 100px), calc(-50% - 100px)) scale(2); /* Alejarse y encogerse */
+    }
+}
+
+/* Navegación */
+.nav-links a {
+    color: #c2185b;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 12px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #ff4081;
+}
+
+.hero {
+    background-image: url('img/hotel-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    color: white;
+    font-style: unset;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #f8edf5;
+    font-style: oblique;
+}
+
+.cta {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #700029;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #b26d86;
+}
+
+.rooms, .gallery, .contact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.rooms h2, .gallery h2, .contact h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #d5dceb;
+}
+
+.room-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.room {
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+}
+
+.room img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    margin: 10px;
+}
+
+.gallery-item img {
+    width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* Estilo para dispositivos móviles (pantallas pequeñas) */
+@media only screen and (max-width: 600px) {
+    /* Ajusta el tamaño del logo */
+    .logo img {
+        max-width: 180px; /* Reduce el tamaño del logo en pantallas pequeñas */
+    }
+
+    /* Ajusta la barra de navegación */
+    .nav-links li a {
+        font-size: 24px; /* Reduce el tamaño de la fuente en los enlaces de navegación */
+    }
+
+    /* Ajusta la sección hero */
+    .hero-content h1 {
+        font-size: 32px; /* Tamaño del título principal en móvil */
+    }
+
+    .hero-content p {
+        font-size: 18px; /* Tamaño del subtítulo en móvil */
+    }
+
+    .cta {
+        font-size: 18px; /* Tamaño del botón de llamada a la acción en móvil */
+        padding: 10px 20px;
+    }
+}
+
+/* Estilo para tablets (pantallas medianas) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .nav-links li a {
+        font-size: 28px; /* Tamaño de la fuente ajustado para tablets */
+    }
+
+    .hero-content h1 {
+        font-size: 40px; /* Tamaño del título principal en tablets */
+    }
+
+    .cta {
+        font-size: 20px; /* Tamaño del botón de llamada a la acción en tablets */
+        padding: 12px 24px;
+    }
+}
+
+/* Estilo para pantallas grandes (escritorio) */
+@media only screen and (min-width: 1025px) {
+    /* Ya tienes tus estilos principales aquí, pero puedes hacer ajustes si lo deseas */
+}
+
+/* Estilos para las imágenes de iconos en la barra de navegación */
+.nav-icon {
+    width: 64px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    vertical-align: middle; /* Alinea la imagen con el texto si es necesario */
+    transition: transform 0.3s ease-in-out; /* Animación para el hover */
+}
+
+.nav-icon:hover {
+    transform: scale(1.1); /* Efecto de agrandar la imagen al pasar el cursor */
+}
+
+/* Sección de Habitaciones */
+.rooms {
+    text-align: center; /* Centra el contenido */
+    margin: 40px 0; /* Espaciado arriba y abajo */
+}
+
+.room-container {
+    margin-top: 30px; /* Espacio adicional entre el título y las habitaciones */
+}
+
+
+/* Estilo del marco decorativo */
+.decorative-frame {
+    position: relative; /* Posiciona el marco relativo al texto */
+    display: inline-flex; /* Asegura que el fondo se ajuste al texto */
+    padding: 0px 20px; /* Ajustado para ser más estrecho en altura */
+    border-radius: 15px; /* Bordes redondeados */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+    background-color: #fff; /* Fondo blanco para el contenedor */
+    overflow: hidden; /* Oculta el contenido que sobresalga */
+    margin-top: -25px; /* Eleva el marco rosa oscuro sin mover el resto */
+}
+.decorative-frame h2,
+.decorative-frame p {
+    position: relative; /* Asegura que el texto esté en la parte superior */
+    z-index: 1; /* Asegura que el texto esté por encima del pseudo-elemento */
+    color: #333; /* Color del texto, asegúrate de que sea oscuro y legible */
+}
+
+
+/* Pseudo-elementos para la forma decorativa */
+.decorative-frame::before, .decorative-frame::after {
+    content: '';
+    position: absolute;
+    border-radius: 90%; /* Forma ovalada en los extremos */
+    background-color: #c2185b; /* Color del fondo */
+    z-index: 0; /* Mantiene el pseudo-elemento por debajo del texto */
+}
+
+/* Pseudo-elemento para la parte superior */
+.decorative-frame::before {
+    width: 120%; /* Ancho mayor para la parte superior */
+    height: 150%; /* Altura mayor para la parte superior */
+    top: -30%; /* Ajusta la posición de la parte superior */
+    left: -12%; /* Centra la forma en relación al contenedor */
+    transform: rotate(12.2deg); /* Rotación para dar un estilo más dinámico */
+}
+
+/* Pseudo-elemento para la parte inferior */
+.decorative-frame::after {
+    width: 100%; /* Ancho normal para la parte inferior */
+    height: 100%; /* Altura normal para la parte inferior */
+    bottom: -40%; /* Ajusta la posición de la parte inferior */
+    right: -15%; /* Centra la forma en relación al contenedor */
+    transform: rotate(-15deg); /* Rotación para dar un estilo más dinámico */
+}
+
+/* Estilo del título decorado */
+.decorated-title {
+    font-size: 34px; /* Tamaño de fuente del título */
+    font-family: 'Great Vibes', cursive; /* Tipografía estilo Disney */
+    color: #c2185b; /* Color rosa oscuro */
+    position: relative; /* Posicionamiento relativo para el pseudo-elemento */
+    z-index: 1; /* Mantiene el texto por encima del marco */
+    padding: 8px 40px; /* Espaciado interno */
+    background-color: #fff; /* Fondo blanco para el texto */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+    overflow: hidden; /* Evita que el pseudo-elemento sobresalga */
+    margin-top: 38px; /* Aumenta la separación superior del texto */
+}
+
+/* Pseudo-elemento para crear un fondo irregular */
+.decorated-title::before {
+    content: '';
+    position: absolute; /* Posiciona el pseudo-elemento */
+    top: 0; /* Coloca en la parte superior */
+    left: 0; /* Coloca a la izquierda */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(255, 220, 220, 0.7); /* Color de fondo */
+    border-radius: 15px; /* Bordes redondeados */
+    transform: rotate(-4deg); /* Rotación para efecto irregular */
+    z-index: -1; /* Coloca detrás del texto */
+}
+
+/* Animación opcional para el fondo */
+.decorated-title:hover::before {
+    background-color: rgb(247, 204, 204); /* Cambia el color al pasar el ratón */
+    transform: scale(2.05); /* Aumenta el tamaño ligeramente */
+    transition: all 0.7s ease; /* Transición suave */
+}
+
+.room-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las habitaciones se ajusten en varias líneas */
+    justify-content: center; /* Centra las habitaciones */
+    gap: 20px; /* Espaciado entre las habitaciones */
+}
+
+.room {
+    background-color: #f8ebf0; /* Color rosa claro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto de profundidad */
+    width: 250px; /* Ancho fijo para las habitaciones */
+    border: 2px solid #c2185b; /* Borde de color rosa oscuro */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.room:hover {
+    background-color: #fcdee6; /* Color rosa oscuro cuando se pasa el ratón */
+    transform: scale(1.05); /* Aumenta el tamaño del cuadrado */
+}
+
+.room img {
+    max-width: 100%; /* Hace que la imagen sea responsiva */
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+    border: 2px solid #e91e63; /* Marco pequeño de color rosa más claro */
+    padding: 5px; /* Espaciado interno para el marco */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para las imágenes */
+}
+
+.stars {
+    font-size: 30px; /* Tamaño de fuente para las estrellas */
+    color: gold; /* Color dorado para las estrellas */
+    margin-top: 10px; /* Espaciado superior para las estrellas */
+}
+
+
+
+/* Para el botón de reserva */
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcd00;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e0b800;
+}
+
+/* Galería de miniaturas con diseño flexible */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Distribuye las imágenes en filas */
+    grid-gap: 15px; /* Espacio entre las imágenes */
+    justify-items: center;
+    margin: 20px 0;
+}
+
+.thumbnail {
+    width: 100%; /* Las miniaturas ocuparán todo el ancho de su "celda" */
+    max-width: 180px; /* Máximo tamaño de las miniaturas */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox: ventana emergente */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-content {
+    position: relative;
+    margin: auto;
+    max-width: 80%;
+}
+
+.lightbox-slide {
+    display: none;
+}
+
+.lightbox-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Botones de navegación en el lightbox */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    user-select: none;
+    border-radius: 0 3px 3px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Cerrar el lightbox */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+.calendar {
+    width: 100%;
+    max-width: 600px; /* Ajusta esto según el ancho que desees */
+    background-color: #fff;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    border-radius: 5px;
+    box-shadow: 0 10px 29px -7px rgba(63,63,63,0.48);
+    padding: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ffd1dc;
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Ajuste automático a 7 columnas */
+    gap: 10px; /* Espacio entre los días */
+    padding: 10px;
+}
+
+.calendar-day {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+
+/* Colores por precio */
+.low-price {
+    background-color: green;
+    color: white;
+}
+
+.medium-price {
+    background-color: yellow;
+    color: black;
+}
+
+.high-price {
+    background-color: red;
+    color: white;
+}
+
+/* Botones de navegación del calendario */
+.calendar-header button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#prevBtn, #nextBtn {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.contact-content {
+    border: 2px solid #333; /* Marco */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px auto; /* Espaciado externo y centrado */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: rgb(255, 235, 245); /* Color de fondo */
+    text-align: center; /* Centra el texto */
+    width: 80%; /* Ancho del marco, puedes ajustarlo */
+    max-width: 600px; /* Ancho máximo */
+}
+
+.contact-content2 {
+    border: 2px dashed #333; /* Marco con borde punteado */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px auto; /* Espaciado externo y centrado */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: rgb(255, 235, 245); /* Color de fondo */
+    text-align: center; /* Centra el texto */
+    width: 80%; /* Ancho del marco */
+    max-width: 600px; /* Ancho máximo */
+    position: relative; /* Para el efecto de sombra */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra */
+}
+
+.contact-content2 form {
+    display: flex; /* Usamos flexbox para alinear elementos */
+    flex-direction: column; /* Alineamos los elementos en columna */
+    gap: 15px; /* Espacio entre los elementos del formulario */
+}
+
+.contact-content2 div {
+    display: flex; /* Flex para alinear etiqueta y campo */
+    flex-direction: column; /* Colocamos etiqueta sobre el campo */
+}
+
+.contact-content2 label {
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo */
+}
+
+.contact-content2 input,
+.contact-content2 textarea {
+    padding: 10px; /* Espaciado interno de los campos */
+    border: 1px solid #ccc; /* Borde de los campos */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+.contact-content2 button {
+    padding: 10px 15px; /* Espaciado interno del botón */
+    background-color: #c2185b; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+.contact-content2 button:hover {
+    background-color: #e3298fb1; /* Color al pasar el ratón por encima */
+}
+
+#login-section {
+    display: flex; /* Usa flexbox para la sección */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    padding: 20px; /* Espaciado alrededor de la sección */
+}
+
+/* Contenedor principal */
+.form-container {
+    display: flex;
+    gap: 20px;
+    border: double 8px #c2185b;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f5e9e9;
+    flex-wrap: wrap;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Formularios individuales */
+#login-form, #register-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+/* Div que contiene cada input */
+form div {
+    margin-bottom: 25px; /* Aumenta el espacio entre campos */
+}
+
+/* Estilo de los campos de entrada */
+input[type="email"], input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    line-height: 1.6; /* Aumenta el espacio entre las líneas dentro del input */
+}
+
+/* Estilo del texto de etiquetas y demás contenido */
+label {
+    line-height: 1.8; /* Aumenta el espacio entre las líneas de texto */
+}
+
+/* Botones */
+button {
+    padding: 10px 15px;
+    background-color: #c2185b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px; /* Más espacio debajo del botón */
+}
+
+button:hover {
+    background-color: #e3298fb1;
+}
+
+/* Línea separadora */
+.separator {
+    width: 2.5px;
+    background-color: #c2185b;
+    margin: 0 20px;
+    height: auto;
+}
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 700px) {
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #login-form, #register-form {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .separator {
+        display: none;
+    }
+}
+
+
+/* Estilos de los días con diferentes precios */
+.low-price {
+    background-color: green;
+    color: white;
+}
+
+.medium-price {
+    background-color: yellow;
+    color: black;
+}
+
+.high-price {
+    background-color: red;
+    color: white;
+}
+
+.luxury-room-container {
+    position: relative; /* Necesario para el pseudo-elemento */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px auto; /* Espaciado externo y centrado */
+    background-color: #fdeaef; /* Color de fondo suave */
+    border: 5px solid #c2185b; /* Borde de color dorado */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    max-width: 600px; /* Ancho máximo */
+    text-align: center; /* Centra el texto */
+}
+
+.luxury-room-container::before {
+    content: ""; /* Pseudo-elemento para el marco */
+    position: absolute;
+    top: -10px; /* Ajusta el margen superior */
+    left: -10px; /* Ajusta el margen izquierdo */
+    right: -10px; /* Ajusta el margen derecho */
+    bottom: -10px; /* Ajusta el margen inferior */
+    border: 5px solid #c2185b; /* Color del marco */
+    border-radius: 20px; /* Bordes redondeados del marco */
+    z-index: -1; /* Asegúrate de que el marco quede detrás del contenido */
+}
+
+h2 {
+    color: #8a0c3e; /* Color del título */
+    font-family: 'Georgia', serif; /* Fuente del título */
+}
+
+p {
+    color: #333; /* Color del texto */
+    font-size: 16px; /* Tamaño de fuente */
+}
+

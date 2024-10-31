@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Habitaciones | Disneyland Hotel</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/script.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="//static/img/Logo-hotel.png" alt="Disneyland Hotel" class="double-border"></a>
+            </div>
+            <!-- Botón de menú hamburguesa para móviles -->
+            <div class="menu-toggle" id="mobile-menu">
+                &#9776;
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="rooms.html">Habitaciones</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="login.html"><img src="//static/img/logo-sesion.png" alt="Inicio Sesión" class="nav-icon"></a></li>            </ul>
+            <style>
+                /* Importar tipografía estilo Disney */
+                @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    
+                /* Estilos para el logo */
+                /* Estilos para el logo */
+.logo {
+    padding: 20px;
+    margin-left: 35px; /* Espacio a la izquierda del logo */
+}
+
+/* Estilos para la imagen con borde doble */
+.double-border {
+    border-radius: 60%;
+    border: 12px solid #c2185b; /* Borde interior más grueso */
+    padding: 5px;
+    box-shadow: 0 0 0 6px #8b0032; /* Borde exterior más delgado simulado con box-shadow */
+    display: block;
+    max-width: 290px; /* Tamaño más grande para el logo */
+    height: auto;
+}
+
+
+    
+ /* Estilos para la barra de navegación */
+nav {
+    background-color: #ffd1dc; /* Fondo rosa pastel */
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Se asegura que ocupe todo el ancho visible del viewport */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+    z-index: 1000; /* Mantiene la barra sobre otros elementos */
+    overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+    border-top: 8px solid #700029; /* Borde superior rosa oscuro */
+    border-bottom: 8px solid #700029; /* Borde inferior rosa oscuro */
+}
+header {
+    background-color: none; /* Asegúrate de que sea el mismo color que la barra de navegación */
+    padding: 0px 0; /* Cambia a un valor más pequeño */
+}
+
+    
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0 60px 0 0;
+    display: flex;
+    gap: 42px; /* Añade más espacio entre los elementos */
+    }
+    
+.nav-links li a {
+    text-decoration: none;
+    color: #c2185b; /* Color rosa oscuro para el texto */
+    font-weight: bold;
+    font-size: 38px; /* Tamaño de fuente más grande */
+    padding: 5px;
+    font-family: 'Great Vibes', cursive; /* Tipografía estilo Disney */
+    transition: all 0.3s ease; /* Transición suave para el hover */
+    }
+    
+    .nav-links li a:hover {
+        color: #700029; /* Tono más oscuro al pasar el cursor */
+        text-decoration: underline; /* Subraya el texto al pasar el cursor */
+        }
+    
+    /* Estilos para el menú hamburguesa en móviles */
+    .menu-toggle {
+        display: none;
+        font-size: 40px;
+        cursor: pointer;
+        padding-right: 20px;
+        color: #c2185b;
+        }
+                
+/* Estilo para dispositivos móviles (pantallas pequeñas) */
+@media only screen and (max-width: 600px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #ffd1dc;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+                    }
+    /* Ajusta el tamaño del logo */
+    .logo img {
+        max-width: 180px; /* Reduce el tamaño del logo en pantallas pequeñas */
+    }
+
+    /* Ajusta la barra de navegación */
+    .nav-links li a {
+        font-size: 24px; /* Reduce el tamaño de la fuente en los enlaces de navegación */
+    }
+    .nav-links.active {
+        display: flex;
+        }
+    .menu-toggle {
+        display: block;
+        }
+
+    /* Ajusta la sección hero */
+    .hero-content h1 {
+        font-size: 32px; /* Tamaño del título principal en móvil */
+    }
+
+    .hero-content p {
+        font-size: 18px; /* Tamaño del subtítulo en móvil */
+    }
+
+    .cta {
+        font-size: 18px; /* Tamaño del botón de llamada a la acción en móvil */
+        padding: 10px 20px;
+    }
+}
+
+/* Estilo para tablets (pantallas medianas) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .nav-links li a {
+        font-size: 28px; /* Tamaño de la fuente ajustado para tablets */
+    }
+
+    .hero-content h1 {
+        font-size: 40px; /* Tamaño del título principal en tablets */
+    }
+
+    .cta {
+        font-size: 20px; /* Tamaño del botón de llamada a la acción en tablets */
+        padding: 12px 24px;
+    }
+    .logo img {
+        max-width: 220px;
+        }
+}
+
+/* Estilo para pantallas grandes (escritorio) */
+@media only screen and (min-width: 1025px) {
+    /* Ya tienes tus estilos principales aquí, pero puedes hacer ajustes si lo deseas */
+}
+
+/* Imagen de fondo para toda la página */
+body {
+        background-image: url('//static/img/fondo2.jpg'); /* Asegúrate de que la ruta de la imagen sea correcta */
+        background-size: cover; /* La imagen cubre todo el fondo */
+        background-position: center; /* Centra la imagen */
+        background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+    .carrusel {
+           position: relative;
+           width: 100%;
+           max-width: 600px;
+           margin: auto;
+           overflow: hidden;
+           border: 2px solid #ddd;
+       }
+       .carrusel img {
+        height: 380px; /* Altura fija, ajusta según tus necesidades */
+           width: 100%;
+           display: none;
+       }
+       .carrusel img.active {
+           display: block;
+       }
+       .prev, .next {
+           cursor: pointer;
+           position: absolute;
+           top: 50%;
+           width: auto;
+           padding: 16px;
+           margin-top: -22px;
+           color: white;
+           font-weight: bold;
+           font-size: 18px;
+           transition: 0.6s ease;
+           border-radius: 0 3px 3px 0;
+           user-select: none;
+       }
+       .next {
+           right: 0;
+           border-radius: 3px 0 0 3px;
+       }
+       .prev:hover, .next:hover {
+           background-color: rgba(0,0,0,0.8);
+       }
+
+    /* Estilos del calendario */
+    .calendar-header {
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           padding: 10px;
+           background-color: #ffd1dc;
+       }
+       
+       .calendar-body {
+           display: grid;
+           grid-template-columns: repeat(7, 1fr);
+           padding: 10px;
+       }
+       .calendar-day {
+           text-align: center;
+           padding: 5px;
+           border-radius: 5px;
+           margin: 5px;
+           cursor: pointer;
+           color: black;
+           box-sizing: border-box;
+       }
+
+
+
+       /* Clases de precios por colores */
+       .low-price {
+           background-color: green;
+           color: white;
+       }
+       .medium-price {
+           background-color: yellow;
+           color: black;
+       }
+       .high-price {
+           background-color: red;
+           color: white;
+       }
+
+
+       /* Botones de navegación del calendario */
+       .calendar-header button {
+           background-color: transparent;
+           border: none;
+           cursor: pointer;
+           font-size: 18px;
+       }
+       #prevBtn, #nextBtn {
+           padding: 10px;
+           background-color: #fff;
+           border-radius: 50%;
+       }
+       #prevBtn:hover, #nextBtn:hover {
+           background-color: #ddd;
+           transition: background-color 0.3s ease;
+       }
+
+
+            </style>
+        </nav>
+    </header>
+
+   <section id="luxury-room">
+    <div class="luxury-room-container">
+        <h2>Suite Signature</h2>
+        <p>El hechizo del Hada Madrina nunca se rompe en esta elegante Suite de Cenicienta, donde los toques mágicos siguen brillando mucho después de medianoche, ¡incluso la zapatilla de cristal! Reserva solo disponible a través de nuestros Expertos Disney.</p>
+    </section>
+
+       <!-- Carrusel de imágenes -->
+       <div class="carrusel">
+        <img src="/static/img/suite-signature-la-reine(1).jpg" class="active">
+        <img src="/static/img/suite-signature-la-reine(2).jpg">
+        <img src="/static/img/suite-signature-la-reine(5).jpg">
+        <img src="/static/img/suite-signature-raiponce(1).jpg">
+        <img src="/static/img/suite-signature-raiponce.jpg">
+        <a class="prev" onclick="moverCarrusel(-1)">&#10094;</a>
+        <a class="next" onclick="moverCarrusel(1)">&#10095;</a>
+    </div>
+
+
+
+       <div class="calendar">
+        <div class="calendar-header">
+            <button id="prevBtn">&#8592;</button>
+            <h2>Octubre 2024</h2>
+            <button id="nextBtn">&#8594;</button>
+        </div>
+        <div class="calendar-body">
+            <!-- Días generados automáticamente -->
+        </div>
+    </div>
+
+    <script>
+
+    let indice = 0;
+
+
+       function moverCarrusel(n) {
+           let imagenes = document.querySelectorAll('.carrusel img');
+           imagenes[indice].classList.remove('active'); // Ocultar imagen actual
+           indice = (indice + n + imagenes.length) % imagenes.length; // Ajustar índice
+           imagenes[indice].classList.add('active'); // Mostrar nueva imagen
+       }
+
+
+    // Variables globales para el año y el mes actuales
+let currentMonth = 9; // Octubre (0-indexed, 9 representa octubre)
+let currentYear = 2024;
+
+// Array con los nombres de los meses
+const monthNames = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+];
+
+// Función para generar el calendario basado en el mes y el año actuales
+function generateCalendar(month, year) {
+    const calendarBody = document.querySelector('.calendar-body');
+    const header = document.querySelector('.calendar-header h2');
+    calendarBody.innerHTML = ''; // Limpiar el calendario existente
+
+    // Actualizar el encabezado del mes y el año
+    header.textContent = `${monthNames[month]} ${year}`;
+
+    // Crear una fecha para calcular los días del mes
+    const date = new Date(year, month + 1, 0); // Último día del mes
+    const totalDays = date.getDate(); // Total de días en el mes
+
+    // Generar días del mes
+    for (let day = 1; day <= totalDays; day++) {
+        const dayElement = document.createElement('div');
+        dayElement.classList.add('calendar-day');
+
+        const dayNumber = document.createElement('div');
+        dayNumber.textContent = day;
+
+        // Generar un precio aleatorio entre 120 y 400
+        const price = Math.floor(Math.random() * (400 - 120 + 1)) + 120; // Cambiar el rango aquí
+
+        // Asignar la clase de precio según su valor
+        if (price <= 200) {
+            dayElement.classList.add('low-price');
+        } else if (price <= 290) {
+            dayElement.classList.add('medium-price');
+        } else {
+            dayElement.classList.add('high-price');
+        }
+
+        // Crear un elemento para mostrar el precio
+        const priceElement = document.createElement('div');
+        priceElement.textContent = `$${price}`;
+
+        // Añadir el número del día y el precio al contenedor del día
+        dayElement.appendChild(dayNumber);
+        dayElement.appendChild(priceElement);
+
+        // Añadir el día al cuerpo del calendario
+        calendarBody.appendChild(dayElement);
+    }
+}
+
+// Funciones para navegar entre meses
+function showPrevMonth() {
+    currentMonth--;
+    if (currentMonth < 0) {
+        currentMonth = 11; // Diciembre
+        currentYear--; // Disminuir el año
+    }
+    generateCalendar(currentMonth, currentYear); // Generar el nuevo mes
+}
+
+function showNextMonth() {
+    currentMonth++;
+    if (currentMonth > 11) {
+        currentMonth = 0; // Enero
+        currentYear++; // Aumentar el año
+    }
+    generateCalendar(currentMonth, currentYear); // Generar el nuevo mes
+}
+
+// Inicializar el calendario al cargar la página
+generateCalendar(currentMonth, currentYear);
+
+// Asignar eventos a los botones
+document.getElementById('prevBtn').addEventListener('click', showPrevMonth);
+document.getElementById('nextBtn').addEventListener('click', showNextMonth);
+
+    </script>
+
+   </section>
+
+
+   <footer>
+       <p>&copy; 2024 Disneyland Hotel Paris. Todos los derechos reservados.</p>
+   </footer>
+
+
+   <script>
+       let indice = 0;
+
+
+       function moverCarrusel(n) {
+           let imagenes = document.querySelectorAll('.carrusel img');
+           imagenes[indice].classList.remove('active'); // Ocultar imagen actual
+           indice = (indice + n + imagenes.length) % imagenes.length; // Ajustar índice
+           imagenes[indice].classList.add('active'); // Mostrar nueva imagen
+       }
+
+       const currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+        let startDate = null;
+        let endDate = null;
+
+        const calendarBody = document.getElementById('calendarBody');
+        const currentMonthElement = document.getElementById('currentMonth');
+        const selectedDatesElement = document.getElementById('selectedDates');
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        prevBtn.addEventListener('click',()=>{
+            currentMonth--;
+            renderCalendar();
+        });
+        nextBtn.addEventListener('click',()=>{
+            currentMonth++;
+            renderCalendar();
+        });
+
+        function renderCalendar(){
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay();
+
+            currentMonthElement.textContent = new Date(currentYear, currentMonth).toLocaleDateString('default',{month: 'long', year: 'numeric'});
+
+            let days = '';
+
+            for (let i = 1; i <= firstDayIndex; i++) {
+                days += `<div class="calendar-day"></div>`;
+            }
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                const date = new Date(currentYear, currentMonth, i);
+                const className = getDayClassName(date);
+                days += `<div class="calendar-day ${className}" onclick="selectDate(${i})">${i}</div>`;
+            }
+
+            calendarBody.innerHTML = days;
+        }
+
+        function selectDate(day){
+            const clickedDate = new Date(currentYear, currentMonth, day);
+            if (!startDate || endDate){
+                startDate = clickedDate;
+                endDate = null;
+            } else if (clickedDate < startDate){
+                startDate = clickedDate;
+            } else if (clickedDate > startDate){
+                endDate = clickedDate;
+            }
+
+            renderCalendar();
+            updateSelectedDates();
+        }
+
+        function updateSelectedDates(){
+            if(startDate && endDate){
+                selectedDatesElement.textContent = `Fechas seleccionadas: ${formatDate(startDate)} - ${formatDate(endDate)}`;
+            } else if (startDate){
+                selectedDatesElement.textContent = `Fechas seleccionadas: ${formatDate(startDate)}`;
+            } else {
+                selectedDatesElement.textContent = `Fechas seleccionadas:`;
+            }
+        }
+
+        function getDayClassName(date){
+            if (startDate && date.toDateString() === startDate.toDateString()){
+                return 'selected';
+            }
+            if (endDate && date.toDateString() === endDate.toDateString()){
+                return 'selected';
+            }
+            if (startDate && endDate && date > startDate && date < endDate){
+                return 'range';
+            }
+            return '';
+        }
+
+        function formatDate(date){
+            return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+        }
+
+        renderCalendar();
+        updateSelectedDates();
+
+   </script>
+   <script src="script.js"></script>
+</body>
+</html>

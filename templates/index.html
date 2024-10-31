@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Disneyland Hotel</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/script.js" defer></script>
+    <link rel="icon" href="/static/img/Logo-hotel.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Barra de navegación -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="/static/img/Logo-hotel.png" alt="Disneyland Hotel" class="double-border"></a>
+            </div>
+            <!-- Botón de menú hamburguesa para móviles -->
+            <div class="menu-toggle" id="mobile-menu">
+                &#9776;
+            </div>
+    
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="rooms.html">Habitaciones</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="login.html"><img src="/static/img/logo-sesion.png" alt="Inicio Sesión" class="nav-icon"></a></li>
+
+            </ul>
+            <style>
+ /* Importar tipografía estilo Disney */
+     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+
+ /* Estilos para el logo */
+.logo {
+    padding: 20px;
+    margin-left: 35px; /* Espacio a la izquierda del logo */
+}
+
+/* Estilos para la imagen con borde doble */
+.double-border {
+    border-radius: 60%;
+    border: 12px solid #c2185b; /* Borde interior más grueso */
+    padding: 5px;
+    box-shadow: 0 0 0 6px #8b0032; /* Borde exterior más delgado simulado con box-shadow */
+    display: block;
+    max-width: 290px; /* Tamaño más grande para el logo */
+    height: auto;
+}
+
+
+    
+ /* Estilos para la barra de navegación */
+nav {
+    background-color: #ffd1dc; /* Fondo rosa pastel */
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Se asegura que ocupe todo el ancho visible del viewport */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+    z-index: 1000; /* Mantiene la barra sobre otros elementos */
+    overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+    border-top: 6px solid #700029; /* Borde superior rosa oscuro */
+    border-bottom: 6px solid #700029; /* Borde inferior rosa oscuro */
+}
+header {
+    background-color: none; /* Asegúrate de que sea el mismo color que la barra de navegación */
+    padding: 0px 0; /* Cambia a un valor más pequeño */
+}
+
+    
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0 60px 0 0;
+    display: flex;
+    gap: 42px; /* Añade más espacio entre los elementos */
+    }
+    
+.nav-links li a {
+    text-decoration: none;
+    color: #c2185b; /* Color rosa oscuro para el texto */
+    font-weight: bold;
+    font-size: 38px; /* Tamaño de fuente más grande */
+    padding: 5px;
+    font-family: 'Great Vibes', cursive; /* Tipografía estilo Disney */
+    transition: all 0.3s ease; /* Transición suave para el hover */
+    }
+    
+    .nav-links li a:hover {
+        color: #700029; /* Tono más oscuro al pasar el cursor */
+        text-decoration: underline; /* Subraya el texto al pasar el cursor */
+        }
+    
+    /* Estilos para el menú hamburguesa en móviles */
+    .menu-toggle {
+        display: none;
+        font-size: 40px;
+        cursor: pointer;
+        padding-right: 20px;
+        color: #c2185b;
+        }
+                
+/* Estilo para dispositivos móviles (pantallas pequeñas) */
+@media only screen and (max-width: 600px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #ffd1dc;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+                    }
+    /* Ajusta el tamaño del logo */
+    .logo img {
+        max-width: 180px; /* Reduce el tamaño del logo en pantallas pequeñas */
+    }
+
+    /* Ajusta la barra de navegación */
+    .nav-links li a {
+        font-size: 24px; /* Reduce el tamaño de la fuente en los enlaces de navegación */
+    }
+    .nav-links.active {
+        display: flex;
+        }
+    .menu-toggle {
+        display: block;
+        }
+
+    /* Ajusta la sección hero */
+    .hero-content h1 {
+        font-size: 32px; /* Tamaño del título principal en móvil */
+    }
+
+    .hero-content p {
+        font-size: 18px; /* Tamaño del subtítulo en móvil */
+    }
+
+    .cta {
+        font-size: 18px; /* Tamaño del botón de llamada a la acción en móvil */
+        padding: 10px 20px;
+    }
+}
+
+/* Estilo para tablets (pantallas medianas) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .nav-links li a {
+        font-size: 28px; /* Tamaño de la fuente ajustado para tablets */
+    }
+
+    .hero-content h1 {
+        font-size: 40px; /* Tamaño del título principal en tablets */
+    }
+
+    .cta {
+        font-size: 20px; /* Tamaño del botón de llamada a la acción en tablets */
+        padding: 12px 24px;
+    }
+    .logo img {
+        max-width: 220px;
+        }
+
+
+}
+
+/* Estilo para pantallas grandes (escritorio) */
+@media only screen and (min-width: 1025px) {
+    /* Ya tienes tus estilos principales aquí, pero puedes hacer ajustes si lo deseas */
+}
+
+/* Imagen de fondo para toda la página */
+body {
+        background-image: url('/static/img/fondo_hotel.jpg'); /* Asegúrate de que la ruta de la imagen sea correcta */
+        background-size: cover; /* La imagen cubre todo el fondo */
+        background-position: center; /* Centra la imagen */
+        background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+    .carrusel {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Ancho máximo del carrusel */
+            margin: auto;
+            overflow: hidden;
+            border: 2px solid #ddd;
+        }
+
+        .carrusel img {
+            width: 100%; /* Ocupa el 100% del ancho del contenedor */
+            height: 300px; /* Altura fija, ajusta según tus necesidades */
+            object-fit: cover; /* Recorta las imágenes para llenar el contenedor manteniendo la proporción */
+            display: none; /* Esconde las imágenes por defecto */
+        }
+
+        .carrusel img.active {
+            display: block; /* Muestra solo la imagen activa */
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+        .cookie-consent a {
+            color: #f0ad4e;
+            text-decoration: underline;
+        }
+        .cookie-consent button {
+            background-color: #f0ad4e;
+            border: none;
+            padding: 10px 15px;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        
+            </style>
+        </nav>
+    </header>
+
+    <!-- Sección principal -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido al Disneyland Hotel</h1>
+            <p>Vive una experiencia mágica y única</p>
+            <a href="rooms.html" class="cta">Ver Habitaciones</a>
+        </div>
+    </section>
+
+    <!-- Ventana emergente para cookies -->
+    <div id="cookieConsent" class="cookie-consent">
+        Esta web usa cookies para mejorar la experiencia del usuario. 
+        <a href="privacy-policy.html" target="_blank">Más información</a>.
+        <br>
+        <button id="acceptCookies">Aceptar</button>
+        <button id="rejectCookies">Rechazar</button>
+    </div>
+
+    <!-- Carrusel de imágenes -->
+    <div class="carrusel">
+        <img src="/static/img/im1.jpg" class="active">
+        <img src="/static/img/im2.jpg">
+        <img src="/static/img/im3.jpg">
+        <img src="/static/img/im4.jpg">
+        <img src="/static/img/im5.jpg">
+        <a class="prev" onclick="moverCarrusel(-1)">&#10094;</a>
+        <a class="next" onclick="moverCarrusel(1)">&#10095;</a>
+    </div>
+
+
+
+<!-- Solo debería haber una ventana emergente, elimina la duplicada si no es necesaria -->
+
+
+
+<script src="script.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Disneyland Hotel Paris. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para activar/desactivar el menú en móviles -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        let indice = 0;
+
+        function moverCarrusel(n) {
+            let imagenes = document.querySelectorAll('.carrusel img');
+            imagenes[indice].classList.remove('active'); // Ocultar imagen actual
+            indice = (indice + n + imagenes.length) % imagenes.length; // Ajustar índice
+            imagenes[indice].classList.add('active'); // Mostrar nueva imagen
+        }
+
+        // Cambiar de imagen automáticamente cada 3 segundos
+        function carruselAutomatico() {
+            moverCarrusel(1); // Mover al siguiente slide
+        }
+
+        setInterval(carruselAutomatico, 3000); // Cambiar imagen cada 3 segundos
+
+        
+        // Cookies
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptCookies = document.getElementById('acceptCookies');
+            const rejectCookies = document.getElementById('rejectCookies');
+            
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookieConsent.style.display = 'block';
+            }
+            
+            acceptCookies.addEventListener('click', function() {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieConsent.style.display = 'none';
+            });
+            
+            rejectCookies.addEventListener('click', function() {
+                localStorage.setItem('cookiesAccepted', 'false');
+                cookieConsent.style.display = 'none';
+            });
+        });
+
+    </script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
