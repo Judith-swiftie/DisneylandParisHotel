@@ -1,4 +1,5 @@
 import csv
+import os
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
@@ -30,6 +31,6 @@ def register():
     return jsonify({'message': f'Correo registrado: {email}, Suscripción: {subscribe}'}), 200
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True)
-
-
+    # Usa el puerto asignado por la plataforma (o 5000 por defecto si no está en producción)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host="0.0.0.0", port=port)
