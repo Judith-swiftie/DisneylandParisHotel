@@ -7,6 +7,12 @@ app = Flask(__name__)
 # Configura logging para Render
 logging.basicConfig(level=logging.INFO)
 
+# Ruta para la página de inicio
+@app.route('/')
+def index():
+    return render_template('login.html')
+
+# Ruta para el registro
 @app.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
@@ -26,4 +32,7 @@ def register():
         return jsonify({'message': 'Error al guardar los datos'}), 500
     
     return jsonify({'message': f'Correo registrado: {email}, Suscripción: {subscribe}'}), 200
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
